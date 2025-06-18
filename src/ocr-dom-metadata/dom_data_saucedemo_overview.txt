@@ -960,7 +960,7 @@
   'tag_name': 'div',
   'text': 'Enter Page Name:\n'
           '                    '
-          'saucedemo_infosaucedemo_cartsaucedemo_loginsaucedemo_overview\n'
+          'saucedemo_overviewsaucedemo_infosaucedemo_cartsaucedemo_login\n'
           '                    Enrich\n'
           '                    Close\n'
           '                    ⏳ Enrichment in progress...',
@@ -981,10 +981,10 @@
   'page_name': 'saucedemo_overview',
   'placeholder': '',
   'tag_name': 'select',
-  'text': 'saucedemo_infosaucedemo_cartsaucedemo_loginsaucedemo_overview',
+  'text': 'saucedemo_overviewsaucedemo_infosaucedemo_cartsaucedemo_login',
   'value': '',
   'width': 250.00003051757812,
-  'x': 507.3999938964844,
+  'x': 485.3500061035156,
   'y': 258.20001220703125},
  {'height': 21.20001220703125,
   'page_name': 'saucedemo_overview',
@@ -993,7 +993,7 @@
   'text': 'Enrich',
   'value': '',
   'width': 52.987518310546875,
-  'x': 502.3999938964844,
+  'x': 480.3500061035156,
   'y': 291.6000061035156},
  {'height': 21.20001220703125,
   'page_name': 'saucedemo_overview',
@@ -1002,14 +1002,14 @@
   'text': 'Close',
   'value': '',
   'width': 49.2750244140625,
-  'x': 559.1124877929688,
+  'x': 537.0625,
   'y': 291.6000061035156},
  {'height': 20,
   'page_name': 'saucedemo_overview',
   'placeholder': '',
   'tag_name': 'div',
-  'text': '⏳ Enrichment in progress...',
+  'text': '✅ Enriched undefined elements successfully.',
   'value': '',
-  'width': 260.0000305175781,
-  'x': 502.3999938964844,
+  'width': 304.1000061035156,
+  'x': 480.3500061035156,
   'y': 322.8000183105469}]
