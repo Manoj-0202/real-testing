@@ -397,7 +397,7 @@
   'tag_name': 'div',
   'text': 'Enter Page Name:\n'
           '                    '
-          'saucedemo_loginsaucedemo_cartsaucedemo_overviewsaucedemo_info\n'
+          'saucedemo_infosaucedemo_cartsaucedemo_loginsaucedemo_overview\n'
           '                    Enrich\n'
           '                    Close\n'
           '                    ⏳ Enrichment in progress...',
@@ -418,7 +418,7 @@
   'page_name': 'saucedemo_cart',
   'placeholder': '',
   'tag_name': 'select',
-  'text': 'saucedemo_loginsaucedemo_cartsaucedemo_overviewsaucedemo_info',
+  'text': 'saucedemo_infosaucedemo_cartsaucedemo_loginsaucedemo_overview',
   'value': '',
   'width': 250,
   'x': 515,
