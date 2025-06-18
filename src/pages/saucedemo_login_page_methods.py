@@ -3,7 +3,7 @@ from lib.smart_ai import patch_page_with_smartai
 # Assumes `page` has been patched already with patch_page_with_smartai(page, metadata)
 
 def verify_swag_labs(page):
-    assert page.smartAI('saucedemo_login_app_name_swag_labs').is_visible()
+    assert page.smartAI('saucedemo_login_title_swag_labs').is_visible()
 
 def enter_username(page, value):
     page.smartAI('saucedemo_login_username_username').fill(value)

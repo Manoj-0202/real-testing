@@ -3,7 +3,7 @@ from lib.smart_ai import patch_page_with_smartai
 # Assumes `page` has been patched already with patch_page_with_smartai(page, metadata)
 
 def verify_checkout_your_information(page):
-    assert page.smartAI('saucedemo_info_page_title_checkout:_your_information').is_visible()
+    assert page.smartAI('saucedemo_info_instructions_checkout:_your_information').is_visible()
 
 def enter_first_name(page, value):
     page.smartAI('saucedemo_info_first_name_first_name').fill(value)

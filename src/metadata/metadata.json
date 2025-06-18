@@ -1,6 +1,11 @@
 {
-  "timestamp": 1750245996.9966538,
-  "pages": [],
+  "timestamp": 1750247101.8150651,
+  "pages": [
+    "saucedemo_cart",
+    "saucedemo_info",
+    "saucedemo_login",
+    "saucedemo_overview"
+  ],
   "test_files": [
     "test_1.py"
   ],
