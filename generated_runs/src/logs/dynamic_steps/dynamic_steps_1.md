@@ -1,0 +1,39 @@
+# Dynamic Steps
+
+    - Call `enter_full_name("<full_name>")`
+    - Call `enter_email("<email>")`
+    - Call `enter_phone_number("<phone_number>")`
+    - Call `select_account_type("<value>")`
+    - Call `enter_address("<address>")`
+    - Call `enter_occupation("<occupation>")`
+    - Call `enter_annual_income("<annual_income>")`
+    - Call `enter_initial_deposit("<initial_deposit>")`
+    - Call `click_cancel()`
+    - Call `click_add_customer()`
+    - Call `enter_search_customers_loans_transactions("<search_customers_loans_transactions>")`
+    - Assert `verify_bank_crm_visible()` checks if **Bank crm visible** is visible
+    - Call `click_dashboard()`
+    - Call `click_customers()`
+    - Call `click_loans()`
+    - Call `click_transactions()`
+    - Call `click_tasks()`
+    - Call `click_reports()`
+    - Call `click_analytics()`
+    - Call `click_settings()`
+    - Call `enter_search_customers("<search_customers>")`
+    - Call `click_export()`
+    - Call `click_add_new_customer()`
+    - Call `click_filters()`
+    - Call `click_edit_with_lovable()`
+    - Assert `verify_bank_crm_visible()` checks if **Bank crm visible** is visible
+    - Call `enter_search_customers_loans_transactions("<search_customers_loans_transactions>")`
+    - Call `click_dashboard()`
+    - Call `click_customers()`
+    - Call `click_loans()`
+    - Call `click_transactions()`
+    - Call `click_tasks()`
+    - Call `click_reports()`
+    - Call `click_analytics()`
+    - Call `click_settings()`
+    - Call `click_export_report()`
+    - Call `click_john_doe()`
