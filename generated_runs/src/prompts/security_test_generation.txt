@@ -36,6 +36,10 @@ RULES
 4. Each test MUST start with:
     page.goto("{site_url}")
 5. Output ONLY executable Python test functions.
+6. When a required interaction (keyboard shortcut, mouse gesture, or checkbox toggle) is not exposed via the POM methods, you may supplement with the following Playwright helpers while keeping the overall flow driven by the allowed methods:
+    - `page.keyboard` helpers (`type`, `press`, `down`, `up`)
+    - `page.mouse` helpers (`click`, `move`, `down`, `up`, `wheel`)
+    - `page.check()` / `page.uncheck()`
 
 REQUIRED TEST FUNCTIONS
 =======================

@@ -1,0 +1,16 @@
+Given I am on the https://asi.paygov.org.in/
+And I verify "ARCHAEOLOGICAL SURVEY OF INDIA" is visible ,                                                                                                                                And I check "Delhi" checkbox,
+And I check "Jantar Mantar" checkbox,
+And I select "Afternoon" in "Visit time" field,
+And I click on "Proceed" button,                                                                                                                                                                                                                                        And I verify "Note: Adult age above 15 yrs & child age below 15 yrs
+And I enter "abcd" in "Name" field,
+And I enter "33" in "Age" field,
+And I enter "asfb@gmail.com" in "Email" field,
+And I enter "7897852147" in "Mobile No" field,
+And I click on "Proceed to pay" button
+And I enter "473424243342" in "Card Number" field,
+And I select "12" for "Expiry Month",
+And I select "2033" for "Expiry Year"
+And I enter "Abcd" in "Name on Card" field,
+And I enter "123" in "CVV" field,
+And I click "Pay Now" button

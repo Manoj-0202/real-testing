@@ -1,0 +1,30 @@
+
+[ui_runner] Running test: TS_001_TC_001_book_jantar_mantar_afternoon_visit_positive...
+
+[ui_runner] No storage_state file found. Expected: C:\Users\rswap\OneDrive\Desktop\project\testify-automator-ai\backend\organizations\manoj\127-12\auth\storage.json
+[SmartAI][SemanticEncoder] Using OpenAI embeddings: text-embedding-3-small
+[SmartAI] Page successfully patched with locator wrappers.
+[SmartAI][Return] locator(#mat-radio-3) [css_selector] succeeded (count=1).
+[SmartAI] Element 'first_delhi_radio_delhioption_select_delhi_radio_delhioption_select' found using primary metadata.
+[SmartAI][Semantic] 'PROCEED TO PAY' healed to 'PROCEED' score=0.71
+[SmartAI] Element 'secnd_proceed_to_pay_button_proceed_to_pay_action' found using primary metadata.
+[SmartAI][Return] get_by_role(textbox, name='card number*') succeeded (count=1).
+[SmartAI] Element 'third_card_number_textbox_card_number_field' found using primary metadata.
+[SmartAI][Return] get_by_text('Expiry Month (MM)') [contains] succeeded (count=1).
+[SmartAI] Element 'third_expiry_month_mm_select_expiry_month_mm_select' found using primary metadata.
+[SmartAI][Return] get_by_text('Expiry Year (YYYY)') [contains] succeeded (count=1).
+[SmartAI] Element 'third_expiry_year_yyyy_select_expiry_year_yyyy_select' found using primary metadata.
+[SmartAI][Return] get_by_role(textbox, name='cvv') succeeded (count=1).
+[SmartAI] Element 'third_cvv_textbox_cvv_field' found using primary metadata.
+
+[ui_runner] TS_001_TC_001_book_jantar_mantar_afternoon_visit_positive: PASS
+
+
+[ui_runner] Skipping TS_001_TC_002_book_jantar_mantar_afternoon_visit_negative (tag filter)
+
+
+[ui_runner] Skipping TS_001_TC_003_book_jantar_mantar_afternoon_visit_edge (tag filter)
+
+
+[ui_runner] Summary: All tests passed.
+

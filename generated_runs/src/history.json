@@ -1,8 +1,89 @@
 {
-  "runs": [],
-  "tests": {},
-  "features": {},
+  "runs": [
+    {
+      "id": "8372371c5bd44098bbcc37dc1f3228d9",
+      "timestamp": "2026-03-24T08:57:32Z",
+      "total": 1,
+      "duration": 132.16,
+      "status_counts": {
+        "passed": 1
+      },
+      "tests": [
+        {
+          "name": "TS_001_TC_001_book_jantar_mantar_afternoon_visit_positive",
+          "status": "passed",
+          "duration": 132.16,
+          "self_healing_actions": 0,
+          "feature": "General",
+          "error_message": null
+        }
+      ],
+      "self_healing_actions": 0,
+      "self_healing_saved": 0,
+      "self_healing_tests": 0,
+      "pass_rate": 1.0,
+      "self_healing_save_rate": 0.0,
+      "feature_summary": [
+        {
+          "name": "General",
+          "runs": 1,
+          "pass": 1,
+          "fail": 0,
+          "broken": 0,
+          "healing_actions": 0
+        }
+      ],
+      "feature_duration": {
+        "General": 132.16
+      },
+      "feature_healing_progress": [
+        {
+          "name": "General",
+          "healed_steps": 0,
+          "total_steps": 14,
+          "tests": 1
+        }
+      ],
+      "healing_strategies": {},
+      "healing_failed_tests": 0,
+      "error_causes": {}
+    }
+  ],
+  "tests": {
+    "TS_001_TC_001_book_jantar_mantar_afternoon_visit_positive": {
+      "name": "TS_001_TC_001_book_jantar_mantar_afternoon_visit_positive",
+      "runs": [
+        {
+          "timestamp": "2026-03-24T08:57:32Z",
+          "status": "passed"
+        }
+      ],
+      "last_status": "passed",
+      "failures": 0,
+      "passes": 1,
+      "flaky_score": 0,
+      "healing_actions": 0
+    }
+  },
+  "features": {
+    "General": {
+      "name": "General",
+      "runs": 1,
+      "pass": 1,
+      "fail": 0,
+      "broken": 0,
+      "healing_actions": 0
+    }
+  },
   "errors": {},
   "healing_strategies": {},
-  "feature_healing": {}
+  "feature_healing": {
+    "General": {
+      "name": "General",
+      "healed_steps": 0,
+      "total_steps": 14,
+      "runs": 1
+    }
+  },
+  "last_updated": "2026-03-24T08:57:32Z"
 }
