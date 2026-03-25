@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","51309","TS_001_TC_003_add_new_customer_to_crm_edge","","Wed Mar 25 11:18:59 IST 2026","passed","Wed Mar 25 11:19:50 IST 2026","","","",""
+"","51653","TS_001_TC_001_add_new_customer_to_crm_positive","","Wed Mar 25 11:17:17 IST 2026","passed","Wed Mar 25 11:18:08 IST 2026","","","",""
+"","50506","TS_001_TC_002_add_new_customer_to_crm_negative","","Wed Mar 25 11:18:08 IST 2026","passed","Wed Mar 25 11:18:59 IST 2026","","","",""

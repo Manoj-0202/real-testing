@@ -1,8 +1,133 @@
 {
-  "runs": [],
-  "tests": {},
-  "features": {},
+  "runs": [
+    {
+      "id": "b9ff84924cd24ac2a681f93f205cb538",
+      "timestamp": "2026-03-25T05:49:54Z",
+      "total": 3,
+      "duration": 153.47,
+      "status_counts": {
+        "passed": 3
+      },
+      "tests": [
+        {
+          "name": "TS_001_TC_003_add_new_customer_to_crm_edge",
+          "status": "passed",
+          "duration": 51.31,
+          "self_healing_actions": 0,
+          "feature": "General",
+          "error_message": null
+        },
+        {
+          "name": "TS_001_TC_001_add_new_customer_to_crm_positive",
+          "status": "passed",
+          "duration": 51.65,
+          "self_healing_actions": 0,
+          "feature": "General",
+          "error_message": null
+        },
+        {
+          "name": "TS_001_TC_002_add_new_customer_to_crm_negative",
+          "status": "passed",
+          "duration": 50.51,
+          "self_healing_actions": 0,
+          "feature": "General",
+          "error_message": null
+        }
+      ],
+      "self_healing_actions": 0,
+      "self_healing_saved": 0,
+      "self_healing_tests": 0,
+      "pass_rate": 1.0,
+      "self_healing_save_rate": 0.0,
+      "feature_summary": [
+        {
+          "name": "General",
+          "runs": 3,
+          "pass": 3,
+          "fail": 0,
+          "broken": 0,
+          "healing_actions": 0
+        }
+      ],
+      "feature_duration": {
+        "General": 51.16
+      },
+      "feature_healing_progress": [
+        {
+          "name": "General",
+          "healed_steps": 0,
+          "total_steps": 36,
+          "tests": 3
+        }
+      ],
+      "healing_strategies": {},
+      "healing_failed_tests": 0,
+      "error_causes": {}
+    }
+  ],
+  "tests": {
+    "TS_001_TC_003_add_new_customer_to_crm_edge": {
+      "name": "TS_001_TC_003_add_new_customer_to_crm_edge",
+      "runs": [
+        {
+          "timestamp": "2026-03-25T05:49:54Z",
+          "status": "passed"
+        }
+      ],
+      "last_status": "passed",
+      "failures": 0,
+      "passes": 1,
+      "flaky_score": 0,
+      "healing_actions": 0
+    },
+    "TS_001_TC_001_add_new_customer_to_crm_positive": {
+      "name": "TS_001_TC_001_add_new_customer_to_crm_positive",
+      "runs": [
+        {
+          "timestamp": "2026-03-25T05:49:54Z",
+          "status": "passed"
+        }
+      ],
+      "last_status": "passed",
+      "failures": 0,
+      "passes": 1,
+      "flaky_score": 0,
+      "healing_actions": 0
+    },
+    "TS_001_TC_002_add_new_customer_to_crm_negative": {
+      "name": "TS_001_TC_002_add_new_customer_to_crm_negative",
+      "runs": [
+        {
+          "timestamp": "2026-03-25T05:49:54Z",
+          "status": "passed"
+        }
+      ],
+      "last_status": "passed",
+      "failures": 0,
+      "passes": 1,
+      "flaky_score": 0,
+      "healing_actions": 0
+    }
+  },
+  "features": {
+    "General": {
+      "name": "General",
+      "runs": 3,
+      "pass": 3,
+      "fail": 0,
+      "broken": 0,
+      "healing_actions": 0
+    }
+  },
   "errors": {},
   "healing_strategies": {},
-  "feature_healing": {}
+  "feature_healing": {
+    "General": {
+      "name": "General",
+      "healed_steps": 0,
+      "total_steps": 36,
+      "runs": 1
+    }
+  },
+  "last_updated": "2026-03-25T05:49:54Z"
 }

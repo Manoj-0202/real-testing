@@ -18,6 +18,7 @@ USER STORY — UI FLOW (MANDATORY FOR UI TESTS)
 
 This defines the EXACT UI navigation flow.
 ALL UI-based security tests MUST follow this flow BEFORE payload injection.
+If the flow cannot be expressed using the AVAILABLE PAGE METHODS, SKIP the test.
 
 {story_block}
 
@@ -46,7 +47,8 @@ CRITICAL EXECUTION RULES (NO EXCEPTIONS)
 PAGE OBJECT MODEL (STRICT)
 =====================================================================
 
-- USE ONLY the Page Object Model (POM) methods listed below.
+- Use ONLY the Page Object Model (POM) methods listed below for UI interactions
+  after navigation.
 - NEVER invent new methods.
 - NEVER use locators, selectors, XPath, CSS, or get_by_* APIs.
 - DO NOT import anything.
@@ -106,7 +108,7 @@ DO NOT generate Playwright logic for:
 Instead generate EXACTLY this format:
 
 def test_<descriptive_name>():
-    assert True  # Skipped: Not UI-testable (API / backend level injection)
+    assert True, "Skipped: Not UI-testable (API / backend level injection)"
 
 =====================================================================
 TEST FUNCTION NAMING (MANDATORY)
@@ -129,15 +131,16 @@ UI TEST STRUCTURE (PER ROW)
 For EACH UI-testable row:
 
 1. page.goto("{site_url}")
-2. Follow USER STORY navigation using POM methods
-3. Inject ONLY the payload from THIS row
-4. Inject ONLY into relevant input fields
-5. Submit using POM methods
-6. Add ONE assertion proving:
-   - No SQL error leakage
-   - No JS dialog execution
-   - No command execution
-   - OR application stability
+2. Translate EVERY step in USER STORY into a POM method call, in order
+3. Do NOT inject until the final navigation step is complete
+4. Inject ONLY the payload from THIS row
+5. Inject ONLY into relevant input fields
+6. Submit the flow using the correct POM submit/click action from the story
+7. Add ONE assertion proving:
+    - No SQL error leakage
+    - No JS dialog execution
+    - No command execution
+    - OR application stability
 
 =====================================================================
 FINAL OUTPUT RULES (STRICT)

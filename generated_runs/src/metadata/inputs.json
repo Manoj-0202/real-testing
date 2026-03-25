@@ -1,0 +1,6 @@
+{
+  "jira_key": null,
+  "user_story": "Given I am on the CRM dashboard on https://bank-buddy-crm-react.lovable.app/\nWhen I click the \"Customers\" button,\nAnd I click the \"Add Customer\" button,\nAnd I enter \"John Doe\" in the Full Name field,\nAnd I enter \"john.doe@example.com\" in the Email field,\nAnd I enter \"1234567890\" in the Phone Number field,\nAnd I select \"Standard\" for Account Type,\nAnd I enter \"123 Main St, Anytown, USA\" in the Address field,\nAnd I enter \"Software Engineer\" in the Occupation field,\nAnd I enter \"75000\" in the Annual Income field,\nAnd I enter \"1000\" in the Initial Deposit field,\nAnd I click the \"Add Customer\" button,",
+  "acceptance_criteria": [],
+  "site_url": "https://bank-buddy-crm-react.lovable.app/"
+}
