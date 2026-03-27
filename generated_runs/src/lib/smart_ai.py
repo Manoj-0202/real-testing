@@ -3,6 +3,7 @@ import json
 import re
 import time
 import numpy as np
+from pathlib import Path
 from functools import wraps
 
 # Optional OpenAI + local SentenceTransformer backends
@@ -17,9 +18,10 @@ except Exception:  # pragma: no cover
     SentenceTransformer = None
 
 try:
-    from playwright.sync_api import Locator as PWLocator
+    from playwright.sync_api import Locator as PWLocator, expect
 except Exception:  # pragma: no cover
     PWLocator = object
+    expect = None
 
 
 class SmartAILocatorError(Exception):
@@ -222,8 +224,94 @@ class SmartAIWrappedLocator(PWLocator):
             pass
 
     def __getattr__(self, name):
-        # Delegate all unknown attributes/methods to the underlying locator
-        return getattr(self._locator, name)
+        # Delegate unknown attributes/methods to the underlying locator, but wrap callables so
+        # SmartAI behavior (auto-scroll + consistent wrapping) applies to the full Playwright surface.
+        attr = getattr(self._locator, name)
+        if not callable(attr):
+            return attr
+
+        def _wrapped(*args, **kwargs):
+            try:
+                if self._should_auto_scroll_for(name):
+                    self._safe_scroll()
+            except Exception:
+                pass
+            result = attr(*args, **kwargs)
+            return self._wrap_return_value(result)
+
+        return _wrapped
+
+    def _should_auto_scroll_for(self, method_name: str) -> bool:
+        if not method_name:
+            return False
+        # Avoid auto-scrolling for pure getters; keep it for interactions and locator-producing calls.
+        auto = {
+            "click",
+            "dblclick",
+            "hover",
+            "tap",
+            "check",
+            "uncheck",
+            "fill",
+            "type",
+            "press",
+            "press_sequentially",
+            "select_option",
+            "select_text",
+            "set_input_files",
+            "dispatch_event",
+            "drag_to",
+            "clear",
+            "focus",
+            "blur",
+            "scroll_into_view_if_needed",
+        }
+        if method_name in auto:
+            return True
+        # Locator chaining commonly precedes actions; scrolling is harmless and reduces flakiness.
+        if method_name in {"locator", "get_by_role", "get_by_text", "get_by_label", "get_by_placeholder", "get_by_test_id", "get_by_title", "get_by_alt_text", "nth", "filter", "and_", "or_"}:
+            return True
+        return False
+
+    def _wrap_return_value(self, value):
+        # Wrap any Locator (or list of Locators) returned by Playwright so callers keep SmartAI behavior.
+        try:
+            if isinstance(value, SmartAIWrappedLocator):
+                return value
+        except Exception:
+            pass
+
+        try:
+            if PWLocator is not object and isinstance(value, PWLocator):
+                return SmartAIWrappedLocator(value, self._page, element_meta=self._element_meta)
+        except Exception:
+            pass
+
+        if isinstance(value, list):
+            wrapped = []
+            for item in value:
+                try:
+                    if PWLocator is not object and isinstance(item, PWLocator):
+                        wrapped.append(SmartAIWrappedLocator(item, self._page, element_meta=self._element_meta))
+                    else:
+                        wrapped.append(item)
+                except Exception:
+                    wrapped.append(item)
+            return wrapped
+
+        if isinstance(value, tuple):
+            wrapped = []
+            for item in value:
+                try:
+                    if PWLocator is not object and isinstance(item, PWLocator):
+                        wrapped.append(SmartAIWrappedLocator(item, self._page, element_meta=self._element_meta))
+                    else:
+                        wrapped.append(item)
+                except Exception:
+                    wrapped.append(item)
+            return tuple(wrapped)
+
+        return value
 
     # --- helpers -------------------------------------------------------------
     def _should_prefer_fill_target(self):
@@ -259,6 +347,31 @@ class SmartAIWrappedLocator(PWLocator):
             self._locator.scroll_into_view_if_needed(timeout=timeout)
         except Exception:
             # We never want scroll failures to block interaction
+            pass
+    def _ensure_attached(self, timeout: int = 6000):
+        try:
+            self._locator.first.wait_for(state="attached", timeout=timeout)
+        except Exception:
+            pass
+
+    def _ensure_visible(self, timeout: int = 6000):
+        try:
+            self._locator.first.wait_for(state="visible", timeout=timeout)
+        except Exception:
+            pass
+
+    def _ensure_enabled(self, timeout: int = 6000):
+        try:
+            if not hasattr(self._locator.first, "is_enabled"):
+                return
+            if expect is not None:
+                expect(self._locator.first).to_be_enabled(timeout=timeout)
+                return
+            try:
+                self._locator.first.is_enabled()
+            except Exception:
+                pass
+        except Exception:
             pass
     def _safe_has_text(self, tag: str, txt: str):
         '''
@@ -359,7 +472,221 @@ class SmartAIWrappedLocator(PWLocator):
     def click(self, *args, **kwargs):
         self._safe_scroll()
         # Always click the first element for stability
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        self._ensure_enabled(kwargs.get("timeout", 6000))
         return self._locator.first.click(*args, **kwargs)
+
+    def right_click(self, *args, **kwargs):
+        self._safe_scroll()
+        kwargs = dict(kwargs)
+        kwargs.setdefault("button", "right")
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        self._ensure_enabled(kwargs.get("timeout", 6000))
+        return self._locator.first.click(*args, **kwargs)
+
+    def dblclick(self, *args, **kwargs):
+        self._safe_scroll()
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        self._ensure_enabled(kwargs.get("timeout", 6000))
+        return self._locator.first.dblclick(*args, **kwargs)
+
+    def hover(self, *args, **kwargs):
+        self._safe_scroll()
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        return self._locator.first.hover(*args, **kwargs)
+
+    def focus(self, *args, **kwargs):
+        self._safe_scroll()
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        return self._locator.first.focus(*args, **kwargs)
+
+    def blur(self, *args, **kwargs):
+        self._safe_scroll()
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        return self._locator.first.blur(*args, **kwargs)
+
+    def press(self, key: str, *args, **kwargs):
+        self._safe_scroll()
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        return self._locator.first.press(key, *args, **kwargs)
+
+    def type(self, value: str, *args, **kwargs):
+        self._safe_scroll()
+        target = self._locator.first
+        if not self._is_fillable(target):
+            resolved = self._resolve_fill_target(target)
+            if resolved is not None:
+                target = resolved
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        return target.type(str(value), *args, **kwargs)
+
+    def clear(self, *args, **kwargs):
+        timeout = kwargs.get("timeout", 6000)
+        return self.fill("", retries=1, timeout=timeout, force=kwargs.get("force", False))
+
+    def _click_kwargs_from(self, kwargs: dict) -> dict:
+        '''Best-effort mapping of check/uncheck kwargs to click kwargs.'''
+        if not kwargs:
+            return {}
+        allowed = {
+            "timeout",
+            "force",
+            "no_wait_after",
+            "trial",
+            "button",
+            "modifiers",
+            "position",
+            "delay",
+            "click_count",
+            "strict",
+        }
+        return {k: v for k, v in kwargs.items() if k in allowed}
+
+    def _best_label_hint(self) -> str:
+        meta = self._element_meta or {}
+        for key in (
+            "label_text",
+            "aria_label",
+            "placeholder",
+            "get_by_text",
+            "text",
+            "value",
+            "name",
+            "unique_name",
+        ):
+            value = meta.get(key)
+            if not value:
+                continue
+            label = str(value).strip()
+            if label:
+                return label
+        return ""
+
+    def _resolve_checkbox_target(self):
+        '''Try to find the real checkbox control when metadata points to a non-input element.'''
+        label = self._best_label_hint()
+        if not label:
+            return None
+
+        candidates = []
+        try:
+            regex = re.compile(re.escape(label), re.IGNORECASE)
+        except Exception:
+            regex = None
+
+        # 1) ARIA checkbox by role
+        try:
+            if regex is not None:
+                candidates.append(self._page.get_by_role("checkbox", name=regex))
+            candidates.append(self._page.get_by_role("checkbox", name=label))
+        except Exception:
+            pass
+
+        # 2) Label association (works for <label for=...>)
+        try:
+            candidates.append(self._page.get_by_label(label))
+        except Exception:
+            pass
+
+        # 3) Common DOM patterns
+        try:
+            quoted = json.dumps(label)
+        except Exception:
+            quoted = "'" + label.replace("'", "\'") + "'"
+
+        selectors = [
+            f"label:has-text({quoted}) input[type='checkbox']",
+            f"label:has-text({quoted}) >> input[type='checkbox']",
+            f"[role='checkbox']:has-text({quoted})",
+            f"input[type='checkbox'][aria-label={quoted}]",
+            f"[aria-label={quoted}][role='checkbox']",
+        ]
+        for sel in selectors:
+            try:
+                candidates.append(self._page.locator(sel))
+            except Exception:
+                continue
+
+        for loc in candidates:
+            try:
+                if loc is not None and loc.count() > 0:
+                    return loc.first
+            except Exception:
+                continue
+
+        return None
+
+    def check(self, *args, **kwargs):
+        '''Robust checkbox check with fallback for anchor/button-based toggles.'''
+        self._safe_scroll()
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        self._ensure_enabled(kwargs.get("timeout", 6000))
+        target = self._locator.first
+        try:
+            return target.check(*args, **kwargs)
+        except Exception as e:
+            message = str(e)
+            if "Not a checkbox or radio button" in message or "not a checkbox" in message.lower():
+                resolved = None
+                try:
+                    resolved = self._resolve_checkbox_target()
+                except Exception:
+                    resolved = None
+                if resolved is not None:
+                    try:
+                        return resolved.check(*args, **kwargs)
+                    except Exception:
+                        pass
+                return target.click(**self._click_kwargs_from(kwargs))
+            raise
+
+    def uncheck(self, *args, **kwargs):
+        '''Robust checkbox uncheck with fallback for anchor/button-based toggles.'''
+        self._safe_scroll()
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        self._ensure_enabled(kwargs.get("timeout", 6000))
+        target = self._locator.first
+        try:
+            return target.uncheck(*args, **kwargs)
+        except Exception as e:
+            message = str(e)
+            if "Not a checkbox or radio button" in message or "not a checkbox" in message.lower():
+                resolved = None
+                try:
+                    resolved = self._resolve_checkbox_target()
+                except Exception:
+                    resolved = None
+                if resolved is not None:
+                    try:
+                        return resolved.uncheck(*args, **kwargs)
+                    except Exception:
+                        pass
+                return target.click(**self._click_kwargs_from(kwargs))
+            raise
+
+    def set_checked(self, checked: bool = True, *args, **kwargs):
+        '''Set checkbox state when supported; otherwise fall back to click.'''
+        self._safe_scroll()
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        self._ensure_enabled(kwargs.get("timeout", 6000))
+        target = self._locator.first
+        try:
+            return target.set_checked(bool(checked), *args, **kwargs)
+        except Exception as e:
+            message = str(e)
+            if "Not a checkbox or radio button" in message or "not a checkbox" in message.lower():
+                resolved = None
+                try:
+                    resolved = self._resolve_checkbox_target()
+                except Exception:
+                    resolved = None
+                if resolved is not None:
+                    try:
+                        return resolved.set_checked(bool(checked), *args, **kwargs)
+                    except Exception:
+                        pass
+                return target.click(**self._click_kwargs_from(kwargs))
+            raise
 
     def fill(self, value, retries: int = 3, timeout: int = 3000, force: bool = False):
         '''
@@ -367,6 +694,8 @@ class SmartAIWrappedLocator(PWLocator):
         If after all retries the field does not reflect the value, raise SmartAILocatorError.
         '''
         self._safe_scroll()
+        self._ensure_attached(timeout)
+        self._ensure_visible(timeout)
         target = self._locator.first
         if not self._is_fillable(target):
             resolved = self._resolve_fill_target(target)
@@ -379,7 +708,6 @@ class SmartAIWrappedLocator(PWLocator):
                 target.fill(str(value), timeout=timeout, force=force)
             except Exception as e:
                 last_error = e
-                time.sleep(0.25)
                 continue
 
             # Validate by reading it back
@@ -397,8 +725,6 @@ class SmartAIWrappedLocator(PWLocator):
             except Exception as e:
                 last_error = e
 
-            time.sleep(0.25)
-
         raise SmartAILocatorError(
             f"SmartAIWrappedLocator.fill failed after {retries} attempts. "
             f"Last error: {last_error}"
@@ -406,10 +732,13 @@ class SmartAIWrappedLocator(PWLocator):
 
     def select_option(
         self,
-        value,
+        value=None,
+        *,
+        label=None,
         index: int | None = None,
         timeout: int = 5000,
         force: bool = False,
+        **kwargs,
     ):
         '''
         Robust select handler:
@@ -466,6 +795,7 @@ class SmartAIWrappedLocator(PWLocator):
             return None
 
         target = _resolve_select_target() or self._locator.first
+        self._ensure_visible(timeout)
 
         # --- Native fast-path for real <select> ---
         try:
@@ -578,6 +908,78 @@ class SmartAIWrappedLocator(PWLocator):
             f"SmartAI: unable to select option '{value}' (index={index})"
         )
 
+    def _resolve_file_input_target(self, locator):
+        try:
+            file_input = locator.locator("input[type='file']")
+            if file_input.count() > 0:
+                return file_input.first
+        except Exception:
+            pass
+
+        try:
+            if locator.get_attribute("for"):
+                candidate = self._page.locator(f"#{locator.get_attribute('for')}")
+                if candidate.count() > 0:
+                    return candidate.first
+        except Exception:
+            pass
+
+        try:
+            container = locator.locator(
+                "xpath=ancestor::*[self::label or self::div or self::form][1]//input[@type='file']"
+            )
+            if container.count() > 0:
+                return container.first
+        except Exception:
+            pass
+
+        try:
+            following = locator.locator("xpath=following::input[@type='file'][1]")
+            if following.count() > 0:
+                return following.first
+        except Exception:
+            pass
+
+        return None
+
+    def set_input_files(self, files, *args, **kwargs):
+        self._safe_scroll()
+        if value is None and label is not None:
+            value = label
+        if value is None:
+            raise SmartAILocatorError("SmartAIWrappedLocator.select_option requires value or label")
+        target = self._resolve_file_input_target(self._locator.first) or self._locator.first
+        # File inputs can be hidden; require attached but not visible.
+        try:
+            target.wait_for(state="attached", timeout=kwargs.get("timeout", 6000))
+        except Exception:
+            pass
+        return target.set_input_files(files, *args, **kwargs)
+
+    def drag_to(self, target, *args, **kwargs):
+        self._safe_scroll()
+        source = self._locator.first
+        dest = None
+        try:
+            if isinstance(target, SmartAIWrappedLocator):
+                dest = target._locator.first
+            elif PWLocator is not object and isinstance(target, PWLocator):
+                dest = target
+        except Exception:
+            dest = None
+        if dest is None and isinstance(target, str):
+            try:
+                dest = self._page.locator(target).first
+            except Exception:
+                dest = None
+        self._ensure_visible(kwargs.get("timeout", 6000))
+        if dest is not None:
+            return source.drag_to(dest, *args, **kwargs)
+        return source.drag_to(target, *args, **kwargs)
+
+    def drag_and_drop(self, target, *args, **kwargs):
+        return self.drag_to(target, *args, **kwargs)
+
 
 # ===========================================================
 # SELF HEALING CORE
@@ -605,6 +1007,23 @@ class SmartAISelfHealing:
 
         # Track failures per-element
         self.locator_fail_count = {}
+
+    def _log_healed_locator(self, unique_name: str, element: dict):
+        try:
+            base_dir = Path(__file__).resolve()
+            for _ in range(4):
+                base_dir = base_dir.parent
+            logs_dir = base_dir / "data" / "logs"
+            logs_dir.mkdir(parents=True, exist_ok=True)
+            record = {
+                "unique_name": unique_name,
+                "label_text": (element or {}).get("label_text"),
+                "timestamp": time.time(),
+            }
+            with (logs_dir / "smartai_healed_locators.jsonl").open("a", encoding="utf-8") as f:
+                f.write(json.dumps(record) + "\n")
+        except Exception:
+            pass
 
     # -------------------------------------------------------------
     # SANITIZER FOR TAILWIND / INVALID CSS CLASS NAMES
@@ -699,6 +1118,21 @@ class SmartAISelfHealing:
         return self.encoder.similarity_text(a, b)
 
     # --- synonym-like text variants (no hardcoded domain words) ---------------
+    def _truncate_text_for_matching(self, txt: str, max_len: int = 180) -> str:
+        '''
+        Limit overly long text used for selectors/regex to avoid Playwright
+        selector parsing issues and expensive matches.
+        '''
+        if not txt:
+            return ""
+        clean = " ".join(str(txt).split())
+        if len(clean) <= max_len:
+            return clean
+        parts = clean.split()
+        if len(parts) >= 6:
+            return " ".join(parts[-6:])
+        return clean[-max_len:]
+
     def _synonym_texts(self, txt: str):
         '''
         Generate neutral text variants without any domain-specific hardcoding.
@@ -708,7 +1142,7 @@ class SmartAISelfHealing:
             return []
 
         variants = set()
-        clean = " ".join(str(txt).split())  # normalize whitespace
+        clean = self._truncate_text_for_matching(txt)  # normalize + cap length
 
         # Basic variants
         variants.add(clean)
@@ -744,8 +1178,8 @@ class SmartAISelfHealing:
         including neutral variants.
         '''
         names = []
-        for key in ("label_text", "get_by_text", "placeholder", "text"):
-            v = (element.get(key) or "").strip()
+        for key in ("label_text", "get_by_text", "placeholder", "text", "aria_label", "title_text"):
+            v = self._truncate_text_for_matching(element.get(key) or "")
             if v:
                 names.extend(self._synonym_texts(v))
 
@@ -873,17 +1307,51 @@ class SmartAISelfHealing:
             or element.get("dom-class")
             or element.get("class_name")
         )
+        data_testid = element.get("data_testid") or element.get("data-testid")
+        aria_label = element.get("aria_label") or element.get("aria-label")
+        css_selector = element.get("css_selector") or element.get("css-selector")
 
-        label_text = (element.get("label_text") or "").strip()
-        get_by_text_v = (element.get("get_by_text") or "").strip()
-        placeholder = (element.get("placeholder") or "").strip()
+        label_text = self._truncate_text_for_matching(element.get("label_text") or "")
+        get_by_text_v = self._truncate_text_for_matching(element.get("get_by_text") or "")
+        placeholder = self._truncate_text_for_matching(element.get("placeholder") or "")
         xpath = (element.get("xpath") or "").strip()
-        raw_text = (element.get("text") or "").strip()
+        raw_text = self._truncate_text_for_matching(element.get("text") or "")
 
         text_variants = []
         for t in [label_text, get_by_text_v, raw_text]:
             if t:
                 text_variants.extend(self._synonym_texts(t))
+
+        # ------- Test IDs (strong if present)
+        if data_testid:
+            def _by_test_id(data_testid=data_testid):
+                return page.get_by_test_id(data_testid)
+
+            strategies.append((_by_test_id, f"get_by_test_id('{data_testid}')"))
+
+            def _by_test_id_css(data_testid=data_testid):
+                safe = str(data_testid).replace('"', '\"')
+                return page.locator(f'[data-testid="{safe}"]')
+
+            strategies.append((_by_test_id_css, f'locator([data-testid="{data_testid}"])'))
+
+        # ------- aria-label (common for icon-only buttons)
+        if aria_label:
+            def _by_aria_label(aria_label=aria_label):
+                return page.get_by_label(aria_label)
+
+            strategies.append((_by_aria_label, f"get_by_label('{aria_label}') [aria-label]"))
+
+            def _by_aria_button(aria_label=aria_label):
+                return page.get_by_role("button", name=aria_label)
+
+            strategies.append((_by_aria_button, f"get_by_role(button, name='{aria_label}') [aria-label]"))
+
+            def _by_aria_locator(aria_label=aria_label):
+                safe = str(aria_label).replace('"', '\"')
+                return page.locator(f'[aria-label="{safe}"]')
+
+            strategies.append((_by_aria_locator, f'locator([aria-label="{aria_label}"])'))
 
         # ------- ROLE-BASED QUERIES (most robust when accessible names exist)
         names = self._names_for_roles(element)
@@ -901,6 +1369,8 @@ class SmartAISelfHealing:
 
                     # Case-insensitive regex
                     try:
+                        if len(nm) > 200:
+                            raise ValueError("name too long for regex selector")
                         regex = re.compile(re.escape(nm), re.IGNORECASE)
 
                         def _role_regex(regex=regex, role=role):
@@ -977,6 +1447,13 @@ class SmartAISelfHealing:
             strategies.append(
                 (_by_display_value, f"get_by_display_value('{sample_value}')")
             )
+
+        # ------- Raw css selector from metadata
+        if css_selector:
+            def _css_selector(css_selector=css_selector):
+                return page.locator(css_selector)
+
+            strategies.append((_css_selector, f"locator({css_selector}) [css_selector]"))
 
         # ------- Data attributes (test-id / qa)
         data_attrs = element.get("data_attrs") or {}
@@ -1098,6 +1575,7 @@ class SmartAISelfHealing:
         # Semantic Text Healing Layer (matches text drift)
         # -------------------------------------------------------------
         semantic_candidates = []
+        semantic_candidates_all = []
         try:
             orig_label = (element.get("label_text") or "").strip()
             if orig_label:
@@ -1130,6 +1608,7 @@ class SmartAISelfHealing:
 
                         score = base_score + parent_bonus + sibling_bonus
 
+                        semantic_candidates_all.append((score, loc))
                         if score >= 0.45:   # threshold after boosting
                             semantic_candidates.append((score, loc))
 
@@ -1141,7 +1620,14 @@ class SmartAISelfHealing:
                 # If the boosted score includes parent/sibling matches,
                 # prefer those above plain semantic similarity
                 semantic_candidates = sorted(semantic_candidates, key=lambda x: x[0], reverse=True)
+                semantic_candidates_all = sorted(semantic_candidates_all, key=lambda x: x[0], reverse=True)
                 best_score, best_loc = semantic_candidates[0]
+                if len(semantic_candidates_all) > 1:
+                    second_score, _second_loc = semantic_candidates_all[1]
+                    if best_score >= 0.45 and best_score - second_score < 0.10:
+                        raise SmartAILocatorError(
+                            "Ambiguous semantic matches found for element."
+                        )
                 try:
                     healed_text = best_loc.inner_text().strip()
                 except Exception:
@@ -1293,6 +1779,7 @@ class SmartAISelfHealing:
                 print(
                     f"[SmartAI] Element '{unique_name}' found using primary metadata."
                 )
+                self._log_healed_locator(unique_name, element)
                 return SmartAIWrappedLocator(locator, page, element_meta=element)
 
             print(
@@ -1307,6 +1794,7 @@ class SmartAISelfHealing:
                 print(
                     f"[SmartAI] Healed element via ML ({ml_score:.2f}): '{element_ml.get('unique_name')}'"
                 )
+                self._log_healed_locator(unique_name, element_ml)
                 return SmartAIWrappedLocator(locator_ml, page, element_meta=element_ml)
 
             # If structured locators failed but score is still strong, brute-force text sweep
@@ -1316,6 +1804,7 @@ class SmartAISelfHealing:
                     print(
                         f"[SmartAI] Healed element via generic text sweep ({ml_score:.2f}): '{element_ml.get('unique_name')}'"
                     )
+                    self._log_healed_locator(unique_name, element_ml)
                     return SmartAIWrappedLocator(locator_generic, page, element_meta=element_ml)
 
         # 3) Intent-based fallback (nearest neighbor by intent)
@@ -1330,6 +1819,7 @@ class SmartAISelfHealing:
                         print(
                             f"[SmartAI] Healed element by intent ('{target_intent}'): '{e.get('unique_name')}'"
                         )
+                        self._log_healed_locator(unique_name, e)
                         return SmartAIWrappedLocator(locator, page, element_meta=e)
 
         raise SmartAILocatorError(

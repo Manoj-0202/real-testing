@@ -1,0 +1,26 @@
+
+[ui_runner] Running test: TS_002_TC_001_add_new_customer_entry_positive...
+
+[ui_runner] No storage_state file found. Expected: C:\Users\rswap\OneDrive\Desktop\project\testify-automator-ai\backend\organizations\manoj\144-bank\auth\storage.json
+[SmartAI][SemanticEncoder] Using OpenAI embeddings: text-embedding-3-small
+[SmartAI] Page successfully patched with locator wrappers.
+[SmartAI][Return] get_by_role(textbox, name='full name') succeeded (count=1).
+[SmartAI] Element 'bank_addcustomer_full_name_textbox_full_name_field' found using primary metadata.
+[SmartAI][Return] get_by_role(textbox, name='email') succeeded (count=1).
+[SmartAI] Element 'bank_addcustomer_email_textbox_email_field' found using primary metadata.
+[SmartAI][Return] get_by_role(textbox, name='Phone Number') succeeded (count=1).
+[SmartAI] Element 'bank_addcustomer_phone_number_textbox_phone_number_field' found using primary metadata.
+[SmartAI][Return] get_by_text('Account Type', exact=True) succeeded (count=1).
+[SmartAI] Element 'bank_addcustomer_account_type_select_account_type_select' found using primary metadata.
+
+[ui_runner] TS_002_TC_001_add_new_customer_entry_positive: PASS
+
+
+[ui_runner] Skipping TS_002_TC_002_add_new_customer_entry_negative (tag filter)
+
+
+[ui_runner] Skipping TS_002_TC_003_add_new_customer_entry_edge (tag filter)
+
+
+[ui_runner] Summary: All tests passed.
+

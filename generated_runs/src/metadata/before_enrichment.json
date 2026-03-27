@@ -1,668 +1,938 @@
 [
   {
-    "id": "a8400357-20b8-4ff1-b8c9-8f946fe92147",
-    "document": "Full Name",
+    "id": "91b20894-14f0-4d8b-aa77-acd3089a3941",
+    "document": "Add New Customer",
     "metadata": {
-      "project_id": 337,
-      "element_id": "a8400357-20b8-4ff1-b8c9-8f946fe92147",
-      "get_by_text": "Full Name",
-      "page_name": "bank_add_customer",
-      "placeholder": "Full Name",
-      "ocr_type": "textbox",
       "type": "ocr",
       "external": false,
-      "unique_name": "bank_add_customer_full_name_textbox_full_name_field",
+      "get_by_text": "Add New Customer",
+      "project_id": 144,
+      "placeholder": "Add New Customer",
+      "ocr_type": "label",
       "dom_matched": false,
+      "element_id": "91b20894-14f0-4d8b-aa77-acd3089a3941",
+      "unique_name": "bank_addcustomer_add_new_customer_label_add_new_customer_info",
+      "intent": "add_new_customer_info",
+      "page_name": "bank_addcustomer",
+      "label_text": "Add New Customer"
+    }
+  },
+  {
+    "id": "9642a96a-08b0-4b29-946c-6e242e527246",
+    "document": "Full Name",
+    "metadata": {
+      "placeholder": "Full Name",
+      "type": "ocr",
+      "page_name": "bank_addcustomer",
       "intent": "full_name_field",
+      "external": false,
+      "project_id": 144,
+      "unique_name": "bank_addcustomer_full_name_textbox_full_name_field",
+      "ocr_type": "textbox",
+      "get_by_text": "Full Name",
+      "element_id": "9642a96a-08b0-4b29-946c-6e242e527246",
+      "dom_matched": false,
       "label_text": "Full Name"
     }
   },
   {
-    "id": "b6b264e9-88b3-4b97-bba2-dfdceb9f289f",
+    "id": "d8ba9864-2b5e-4730-a60a-44fb4c61a932",
     "document": "Email",
     "metadata": {
-      "unique_name": "bank_add_customer_email_textbox_email_field",
-      "intent": "email_field",
-      "page_name": "bank_add_customer",
-      "element_id": "b6b264e9-88b3-4b97-bba2-dfdceb9f289f",
-      "ocr_type": "textbox",
-      "dom_matched": false,
-      "placeholder": "Email",
       "label_text": "Email",
-      "project_id": 337,
+      "project_id": 144,
+      "page_name": "bank_addcustomer",
       "get_by_text": "Email",
-      "external": false,
-      "type": "ocr"
-    }
-  },
-  {
-    "id": "6d70be69-7fd3-465f-8fb6-afd7a51836d5",
-    "document": "Phone Number",
-    "metadata": {
-      "intent": "phone_number_field",
-      "type": "ocr",
-      "page_name": "bank_add_customer",
-      "element_id": "6d70be69-7fd3-465f-8fb6-afd7a51836d5",
-      "external": false,
-      "placeholder": "Phone Number",
-      "label_text": "Phone Number",
-      "project_id": 337,
+      "placeholder": "Email",
+      "unique_name": "bank_addcustomer_email_textbox_email_field",
+      "element_id": "d8ba9864-2b5e-4730-a60a-44fb4c61a932",
       "dom_matched": false,
-      "unique_name": "bank_add_customer_phone_number_textbox_phone_number_field",
-      "get_by_text": "Phone Number",
+      "intent": "email_field",
+      "external": false,
+      "type": "ocr",
       "ocr_type": "textbox"
     }
   },
   {
-    "id": "f8a99c4e-2b16-49fe-9a7d-acc6bf68dd78",
+    "id": "b2cea4ce-4d67-4481-8ed3-a4719a243d49",
+    "document": "Phone Number",
+    "metadata": {
+      "unique_name": "bank_addcustomer_phone_number_textbox_phone_number_field",
+      "dom_matched": false,
+      "ocr_type": "textbox",
+      "placeholder": "Phone Number",
+      "type": "ocr",
+      "project_id": 144,
+      "intent": "phone_number_field",
+      "external": false,
+      "get_by_text": "Phone Number",
+      "label_text": "Phone Number",
+      "element_id": "b2cea4ce-4d67-4481-8ed3-a4719a243d49",
+      "page_name": "bank_addcustomer"
+    }
+  },
+  {
+    "id": "2299c5ac-bb78-45f9-8327-921a983fba62",
     "document": "Account Type",
     "metadata": {
       "type": "ocr",
-      "ocr_type": "select",
       "placeholder": "Account Type",
-      "external": false,
-      "intent": "account_type_select",
-      "element_id": "f8a99c4e-2b16-49fe-9a7d-acc6bf68dd78",
-      "dom_matched": false,
-      "project_id": 337,
       "label_text": "Account Type",
-      "unique_name": "bank_add_customer_account_type_select_account_type_select",
+      "element_id": "2299c5ac-bb78-45f9-8327-921a983fba62",
+      "intent": "account_type_select",
+      "external": false,
+      "dom_matched": false,
+      "project_id": 144,
+      "unique_name": "bank_addcustomer_account_type_select_account_type_select",
       "get_by_text": "Account Type",
-      "page_name": "bank_add_customer"
+      "page_name": "bank_addcustomer",
+      "ocr_type": "select"
     }
   },
   {
-    "id": "f26c1653-b034-4733-89cc-ccd78ce12989",
+    "id": "7f0d6ff5-03a0-4b20-b24e-003dec793869",
     "document": "Address",
     "metadata": {
+      "project_id": 144,
+      "dom_matched": false,
+      "type": "ocr",
+      "ocr_type": "textbox",
+      "label_text": "Address",
+      "element_id": "7f0d6ff5-03a0-4b20-b24e-003dec793869",
+      "unique_name": "bank_addcustomer_address_textbox_address_field",
+      "placeholder": "Address",
       "external": false,
       "get_by_text": "Address",
-      "project_id": 337,
-      "placeholder": "Address",
-      "dom_matched": false,
-      "unique_name": "bank_add_customer_address_textbox_address_field",
-      "type": "ocr",
-      "element_id": "f26c1653-b034-4733-89cc-ccd78ce12989",
-      "label_text": "Address",
-      "page_name": "bank_add_customer",
-      "ocr_type": "textbox",
-      "intent": "address_field"
+      "intent": "address_field",
+      "page_name": "bank_addcustomer"
     }
   },
   {
-    "id": "9a54a7b1-f0d3-4506-bb81-21243bc04cd4",
+    "id": "1e5e023c-259d-487e-aa50-dbd1b1cf6cd0",
     "document": "Occupation",
     "metadata": {
-      "get_by_text": "Occupation",
-      "element_id": "9a54a7b1-f0d3-4506-bb81-21243bc04cd4",
-      "project_id": 337,
-      "page_name": "bank_add_customer",
+      "external": false,
       "placeholder": "Occupation",
+      "unique_name": "bank_addcustomer_occupation_textbox_occupation_field",
+      "get_by_text": "Occupation",
+      "page_name": "bank_addcustomer",
+      "dom_matched": false,
+      "element_id": "1e5e023c-259d-487e-aa50-dbd1b1cf6cd0",
       "type": "ocr",
       "label_text": "Occupation",
-      "ocr_type": "textbox",
       "intent": "occupation_field",
-      "dom_matched": false,
-      "external": false,
-      "unique_name": "bank_add_customer_occupation_textbox_occupation_field"
+      "project_id": 144,
+      "ocr_type": "textbox"
     }
   },
   {
-    "id": "74d5d910-bdbb-4214-b544-c694969ec167",
+    "id": "3b9d6ec9-e30e-4e83-bf84-91edffb1e2ca",
     "document": "Annual Income",
     "metadata": {
-      "external": false,
-      "dom_matched": false,
-      "unique_name": "bank_add_customer_annual_income_textbox_annual_income_field",
-      "element_id": "74d5d910-bdbb-4214-b544-c694969ec167",
+      "project_id": 144,
       "intent": "annual_income_field",
-      "type": "ocr",
-      "project_id": 337,
-      "label_text": "Annual Income",
-      "page_name": "bank_add_customer",
       "ocr_type": "textbox",
-      "get_by_text": "Annual Income",
-      "placeholder": "Annual Income"
-    }
-  },
-  {
-    "id": "4638202b-99bb-477c-a30d-b61f88e887e0",
-    "document": "Initial Deposit",
-    "metadata": {
-      "label_text": "Initial Deposit",
-      "ocr_type": "textbox",
-      "unique_name": "bank_add_customer_initial_deposit_textbox_initial_deposit_field",
-      "page_name": "bank_add_customer",
-      "placeholder": "Initial Deposit",
-      "project_id": 337,
-      "type": "ocr",
-      "element_id": "4638202b-99bb-477c-a30d-b61f88e887e0",
+      "element_id": "3b9d6ec9-e30e-4e83-bf84-91edffb1e2ca",
+      "page_name": "bank_addcustomer",
       "external": false,
-      "get_by_text": "Initial Deposit",
-      "intent": "initial_deposit_field",
+      "unique_name": "bank_addcustomer_annual_income_textbox_annual_income_field",
+      "placeholder": "Annual Income",
+      "get_by_text": "Annual Income",
+      "label_text": "Annual Income",
+      "type": "ocr",
       "dom_matched": false
     }
   },
   {
-    "id": "f11198da-211e-4cab-b926-a3911837c0ca",
+    "id": "49745ef2-63c2-417c-9216-586e4fa3c295",
+    "document": "Initial Deposit",
+    "metadata": {
+      "ocr_type": "textbox",
+      "label_text": "Initial Deposit",
+      "project_id": 144,
+      "placeholder": "Initial Deposit",
+      "intent": "initial_deposit_field",
+      "page_name": "bank_addcustomer",
+      "unique_name": "bank_addcustomer_initial_deposit_textbox_initial_deposit_field",
+      "external": false,
+      "type": "ocr",
+      "element_id": "49745ef2-63c2-417c-9216-586e4fa3c295",
+      "get_by_text": "Initial Deposit",
+      "dom_matched": false
+    }
+  },
+  {
+    "id": "08634faa-4b6c-40e3-8367-e040e245f549",
     "document": "Cancel",
     "metadata": {
-      "placeholder": "Cancel",
-      "type": "ocr",
-      "element_id": "f11198da-211e-4cab-b926-a3911837c0ca",
-      "page_name": "bank_add_customer",
-      "dom_matched": false,
-      "project_id": 337,
       "intent": "cancel_action",
+      "label_text": "Cancel",
+      "unique_name": "bank_addcustomer_cancel_button_cancel_action",
+      "page_name": "bank_addcustomer",
+      "element_id": "08634faa-4b6c-40e3-8367-e040e245f549",
+      "project_id": 144,
       "ocr_type": "button",
-      "unique_name": "bank_add_customer_cancel_button_cancel_action",
-      "get_by_text": "Cancel",
+      "placeholder": "Cancel",
       "external": false,
-      "label_text": "Cancel"
+      "type": "ocr",
+      "dom_matched": false,
+      "get_by_text": "Cancel"
     }
   },
   {
-    "id": "c00bb32a-14fb-4c7f-b65d-83c56719b9ee",
+    "id": "016bc508-c0ff-4f89-9092-ff3efbc709ac",
     "document": "Add Customer",
     "metadata": {
-      "intent": "add_customer_action",
-      "label_text": "Add Customer",
-      "ocr_type": "button",
-      "external": false,
+      "element_id": "016bc508-c0ff-4f89-9092-ff3efbc709ac",
       "placeholder": "Add Customer",
-      "unique_name": "bank_add_customer_add_customer_button_add_customer_action",
-      "get_by_text": "Add Customer",
-      "project_id": 337,
+      "unique_name": "bank_addcustomer_add_customer_button_add_customer_action",
+      "label_text": "Add Customer",
       "dom_matched": false,
-      "element_id": "c00bb32a-14fb-4c7f-b65d-83c56719b9ee",
-      "page_name": "bank_add_customer",
-      "type": "ocr"
+      "get_by_text": "Add Customer",
+      "external": false,
+      "project_id": 144,
+      "type": "ocr",
+      "ocr_type": "button",
+      "page_name": "bank_addcustomer",
+      "intent": "add_customer_action"
     }
   },
   {
-    "id": "0d2e02e3-527a-4970-80b9-3aebe86e1c07",
+    "id": "e5e1305f-e01c-4006-8c17-598b0720baee",
     "document": "Search customers, loans, transactions...",
     "metadata": {
-      "placeholder": "Search customers, loans, transactions...",
-      "type": "ocr",
-      "get_by_text": "Search customers, loans, transactions...",
       "external": false,
-      "label_text": "Search customers, loans, transactions...",
+      "page_name": "bank_customer",
       "intent": "search_customers_loans_transactions_field",
+      "label_text": "Search customers, loans, transactions...",
       "ocr_type": "textbox",
-      "element_id": "0d2e02e3-527a-4970-80b9-3aebe86e1c07",
-      "dom_matched": false,
-      "unique_name": "bank_customer_search_customers_loans_transactions_textbox_search_customers_loans_transactions_field",
-      "page_name": "bank_customer",
-      "project_id": 337
-    }
-  },
-  {
-    "id": "27cc1e1b-a1e9-4dc0-96ff-4ac645124075",
-    "document": "Bank CRM",
-    "metadata": {
-      "intent": "bank_crm_info",
+      "element_id": "e5e1305f-e01c-4006-8c17-598b0720baee",
       "type": "ocr",
-      "get_by_text": "Bank CRM",
-      "ocr_type": "label",
-      "label_text": "Bank CRM",
-      "project_id": 337,
-      "unique_name": "bank_customer_bank_crm_label_bank_crm_info",
-      "placeholder": "Bank CRM",
-      "element_id": "27cc1e1b-a1e9-4dc0-96ff-4ac645124075",
-      "page_name": "bank_customer",
       "dom_matched": false,
-      "external": false
+      "project_id": 144,
+      "placeholder": "Search customers, loans, transactions...",
+      "get_by_text": "Search customers, loans, transactions...",
+      "unique_name": "bank_customer_search_customers_loans_transactions_textbox_search_customers_loans_transactions_field"
     }
   },
   {
-    "id": "2032ebb6-b832-40f4-b6d8-0e240d526ae9",
+    "id": "f5c141c9-0c79-454a-a02b-6bffc31e6b1e",
     "document": "Dashboard",
     "metadata": {
+      "project_id": 144,
       "label_text": "Dashboard",
-      "page_name": "bank_customer",
-      "type": "ocr",
-      "element_id": "2032ebb6-b832-40f4-b6d8-0e240d526ae9",
-      "ocr_type": "link",
-      "dom_matched": false,
-      "placeholder": "Dashboard",
-      "project_id": 337,
       "unique_name": "bank_customer_dashboard_link_dashboard_action",
-      "get_by_text": "Dashboard",
+      "dom_matched": false,
       "intent": "dashboard_action",
-      "external": false
-    }
-  },
-  {
-    "id": "ec3f793e-9d60-4603-9783-2b9d7f1674cd",
-    "document": "Customers",
-    "metadata": {
-      "intent": "customers_action",
-      "placeholder": "Customers",
-      "project_id": 337,
-      "label_text": "Customers",
-      "unique_name": "bank_customer_customers_link_customers_action",
-      "element_id": "ec3f793e-9d60-4603-9783-2b9d7f1674cd",
-      "type": "ocr",
-      "external": false,
-      "get_by_text": "Customers",
-      "dom_matched": false,
-      "ocr_type": "link",
-      "page_name": "bank_customer"
-    }
-  },
-  {
-    "id": "cb4cb674-8ce6-4283-b7d4-60af3492f5b5",
-    "document": "Loans",
-    "metadata": {
-      "type": "ocr",
-      "external": false,
-      "unique_name": "bank_customer_loans_link_loans_action",
-      "get_by_text": "Loans",
-      "element_id": "cb4cb674-8ce6-4283-b7d4-60af3492f5b5",
-      "intent": "loans_action",
-      "dom_matched": false,
-      "label_text": "Loans",
+      "get_by_text": "Dashboard",
       "page_name": "bank_customer",
-      "project_id": 337,
-      "placeholder": "Loans",
+      "external": false,
+      "type": "ocr",
+      "placeholder": "Dashboard",
+      "element_id": "f5c141c9-0c79-454a-a02b-6bffc31e6b1e",
       "ocr_type": "link"
     }
   },
   {
-    "id": "d15b8fa1-924b-4f33-91b5-7760c7398c25",
-    "document": "Transactions",
+    "id": "4f935032-16c5-475e-88fc-cfd7dd725cc9",
+    "document": "Customers",
     "metadata": {
-      "ocr_type": "link",
-      "unique_name": "bank_customer_transactions_link_transactions_action",
-      "intent": "transactions_action",
-      "get_by_text": "Transactions",
-      "label_text": "Transactions",
-      "element_id": "d15b8fa1-924b-4f33-91b5-7760c7398c25",
-      "external": false,
-      "project_id": 337,
-      "type": "ocr",
-      "dom_matched": false,
-      "placeholder": "Transactions",
-      "page_name": "bank_customer"
-    }
-  },
-  {
-    "id": "a95e60c6-d15d-498f-9fc5-ec0fc11a1c9d",
-    "document": "Tasks",
-    "metadata": {
-      "unique_name": "bank_customer_tasks_link_tasks_action",
-      "ocr_type": "link",
-      "label_text": "Tasks",
-      "project_id": 337,
-      "intent": "tasks_action",
-      "dom_matched": false,
-      "external": false,
-      "placeholder": "Tasks",
-      "element_id": "a95e60c6-d15d-498f-9fc5-ec0fc11a1c9d",
-      "get_by_text": "Tasks",
-      "type": "ocr",
-      "page_name": "bank_customer"
-    }
-  },
-  {
-    "id": "72b38088-dfa8-4ce2-8cda-13eca7c7c53c",
-    "document": "Reports",
-    "metadata": {
-      "placeholder": "Reports",
-      "external": false,
-      "project_id": 337,
-      "ocr_type": "link",
-      "element_id": "72b38088-dfa8-4ce2-8cda-13eca7c7c53c",
-      "page_name": "bank_customer",
-      "unique_name": "bank_customer_reports_link_reports_action",
-      "type": "ocr",
-      "dom_matched": false,
-      "get_by_text": "Reports",
-      "label_text": "Reports",
-      "intent": "reports_action"
-    }
-  },
-  {
-    "id": "46626f65-2e55-4d99-8f2c-baa71d645813",
-    "document": "Analytics",
-    "metadata": {
-      "placeholder": "Analytics",
-      "get_by_text": "Analytics",
-      "unique_name": "bank_customer_analytics_link_analytics_action",
-      "ocr_type": "link",
-      "type": "ocr",
-      "label_text": "Analytics",
-      "external": false,
-      "element_id": "46626f65-2e55-4d99-8f2c-baa71d645813",
-      "project_id": 337,
-      "dom_matched": false,
-      "intent": "analytics_action",
-      "page_name": "bank_customer"
-    }
-  },
-  {
-    "id": "c678e10d-6379-4d52-ba54-44a53c75cf0a",
-    "document": "Settings",
-    "metadata": {
-      "project_id": 337,
-      "type": "ocr",
-      "unique_name": "bank_customer_settings_link_settings_action",
-      "get_by_text": "Settings",
-      "external": false,
-      "label_text": "Settings",
       "page_name": "bank_customer",
       "ocr_type": "link",
-      "element_id": "c678e10d-6379-4d52-ba54-44a53c75cf0a",
+      "element_id": "4f935032-16c5-475e-88fc-cfd7dd725cc9",
+      "get_by_text": "Customers",
       "dom_matched": false,
-      "intent": "settings_action",
-      "placeholder": "Settings"
-    }
-  },
-  {
-    "id": "aac675d4-3c8a-4e9a-b760-2bb31a8aa604",
-    "document": "Search customers...",
-    "metadata": {
-      "unique_name": "bank_customer_search_customers_textbox_search_customers_field",
-      "page_name": "bank_customer",
-      "dom_matched": false,
+      "label_text": "Customers",
+      "project_id": 144,
+      "type": "ocr",
+      "placeholder": "Customers",
       "external": false,
-      "project_id": 337,
-      "type": "ocr",
-      "ocr_type": "textbox",
-      "element_id": "aac675d4-3c8a-4e9a-b760-2bb31a8aa604",
-      "get_by_text": "Search customers...",
-      "intent": "search_customers_field",
-      "label_text": "Search customers...",
-      "placeholder": "Search customers..."
+      "intent": "customers_action",
+      "unique_name": "bank_customer_customers_link_customers_action"
     }
   },
   {
-    "id": "42936017-8645-42a9-82cc-3aaa4592c1c7",
-    "document": "Export",
+    "id": "2c9f722e-488f-45e5-8253-2117f6658e24",
+    "document": "Loans",
     "metadata": {
-      "ocr_type": "button",
       "page_name": "bank_customer",
-      "intent": "export_action",
-      "unique_name": "bank_customer_export_button_export_action",
-      "placeholder": "Export",
-      "label_text": "Export",
-      "get_by_text": "Export",
-      "element_id": "42936017-8645-42a9-82cc-3aaa4592c1c7",
-      "type": "ocr",
-      "external": false,
-      "project_id": 337,
-      "dom_matched": false
-    }
-  },
-  {
-    "id": "456caafd-aca5-49b7-9f6a-c407c801a6e9",
-    "document": "Add new Customer",
-    "metadata": {
-      "placeholder": "Add new Customer",
-      "unique_name": "bank_customer_add_new_customer_button_add_new_customer_action",
-      "intent": "add_new_customer_action",
+      "placeholder": "Loans",
+      "ocr_type": "link",
+      "get_by_text": "Loans",
       "dom_matched": false,
-      "page_name": "bank_customer",
+      "unique_name": "bank_customer_loans_link_loans_action",
       "type": "ocr",
-      "label_text": "Add new Customer",
-      "get_by_text": "Add new Customer",
-      "project_id": 337,
-      "ocr_type": "button",
-      "element_id": "456caafd-aca5-49b7-9f6a-c407c801a6e9",
+      "label_text": "Loans",
+      "project_id": 144,
+      "element_id": "2c9f722e-488f-45e5-8253-2117f6658e24",
+      "intent": "loans_action",
       "external": false
     }
   },
   {
-    "id": "cc8bda08-1250-4de3-bb9e-c9931b47654f",
-    "document": "Filters",
+    "id": "ab12b732-4e14-4248-98b8-6ab21b168b84",
+    "document": "Transactions",
     "metadata": {
-      "unique_name": "bank_customer_filters_button_filters_action",
+      "element_id": "ab12b732-4e14-4248-98b8-6ab21b168b84",
       "type": "ocr",
-      "get_by_text": "Filters",
-      "intent": "filters_action",
-      "page_name": "bank_customer",
-      "ocr_type": "button",
-      "placeholder": "Filters",
+      "intent": "transactions_action",
+      "project_id": 144,
       "external": false,
+      "unique_name": "bank_customer_transactions_link_transactions_action",
+      "get_by_text": "Transactions",
+      "ocr_type": "link",
       "dom_matched": false,
-      "project_id": 337,
-      "label_text": "Filters",
-      "element_id": "cc8bda08-1250-4de3-bb9e-c9931b47654f"
+      "page_name": "bank_customer",
+      "placeholder": "Transactions",
+      "label_text": "Transactions"
     }
   },
   {
-    "id": "a657e514-12eb-4a4f-b9ea-86ad0ac43bc8",
-    "document": "Edit with Lovable",
+    "id": "04781291-3628-423e-a7bd-a794cc02cfb7",
+    "document": "Tasks",
     "metadata": {
-      "unique_name": "bank_customer_edit_with_lovable_button_edit_with_lovable_action",
-      "ocr_type": "button",
-      "page_name": "bank_customer",
+      "intent": "tasks_action",
+      "type": "ocr",
       "external": false,
       "dom_matched": false,
-      "placeholder": "Edit with Lovable",
-      "element_id": "a657e514-12eb-4a4f-b9ea-86ad0ac43bc8",
-      "intent": "edit_with_lovable_action",
-      "project_id": 337,
-      "get_by_text": "Edit with Lovable",
-      "label_text": "Edit with Lovable",
+      "get_by_text": "Tasks",
+      "placeholder": "Tasks",
+      "unique_name": "bank_customer_tasks_link_tasks_action",
+      "page_name": "bank_customer",
+      "ocr_type": "link",
+      "project_id": 144,
+      "element_id": "04781291-3628-423e-a7bd-a794cc02cfb7",
+      "label_text": "Tasks"
+    }
+  },
+  {
+    "id": "5dcd2529-50fe-44e7-8d32-06cd0b310367",
+    "document": "Reports",
+    "metadata": {
+      "unique_name": "bank_customer_reports_link_reports_action",
+      "page_name": "bank_customer",
+      "label_text": "Reports",
+      "intent": "reports_action",
+      "external": false,
+      "dom_matched": false,
+      "placeholder": "Reports",
+      "project_id": 144,
+      "element_id": "5dcd2529-50fe-44e7-8d32-06cd0b310367",
+      "get_by_text": "Reports",
+      "type": "ocr",
+      "ocr_type": "link"
+    }
+  },
+  {
+    "id": "91a83296-a4e0-4013-8025-723b83dbe644",
+    "document": "Analytics",
+    "metadata": {
+      "element_id": "91a83296-a4e0-4013-8025-723b83dbe644",
+      "ocr_type": "link",
+      "dom_matched": false,
+      "label_text": "Analytics",
+      "external": false,
+      "placeholder": "Analytics",
+      "intent": "analytics_action",
+      "unique_name": "bank_customer_analytics_link_analytics_action",
+      "type": "ocr",
+      "project_id": 144,
+      "get_by_text": "Analytics",
+      "page_name": "bank_customer"
+    }
+  },
+  {
+    "id": "7b39b39f-7cc9-45f9-bf30-dbbb24a59171",
+    "document": "Settings",
+    "metadata": {
+      "label_text": "Settings",
+      "type": "ocr",
+      "page_name": "bank_customer",
+      "placeholder": "Settings",
+      "project_id": 144,
+      "get_by_text": "Settings",
+      "intent": "settings_action",
+      "element_id": "7b39b39f-7cc9-45f9-bf30-dbbb24a59171",
+      "unique_name": "bank_customer_settings_link_settings_action",
+      "dom_matched": false,
+      "external": false,
+      "ocr_type": "link"
+    }
+  },
+  {
+    "id": "867a3082-78a0-468f-a10c-be5f8817fa0b",
+    "document": "Customers",
+    "metadata": {
+      "intent": "customers_info",
+      "unique_name": "bank_customer_customers_label_customers_info",
+      "ocr_type": "label",
+      "element_id": "867a3082-78a0-468f-a10c-be5f8817fa0b",
+      "label_text": "Customers",
+      "placeholder": "Customers",
+      "external": false,
+      "dom_matched": false,
+      "page_name": "bank_customer",
+      "type": "ocr",
+      "get_by_text": "Customers",
+      "project_id": 144
+    }
+  },
+  {
+    "id": "3f8f18c9-2281-4319-9dd4-6d1676404608",
+    "document": "Search customers...",
+    "metadata": {
+      "placeholder": "Search customers...",
+      "unique_name": "bank_customer_search_customers_textbox_search_customers_field",
+      "dom_matched": false,
+      "external": false,
+      "get_by_text": "Search customers...",
+      "element_id": "3f8f18c9-2281-4319-9dd4-6d1676404608",
+      "type": "ocr",
+      "page_name": "bank_customer",
+      "ocr_type": "textbox",
+      "intent": "search_customers_field",
+      "project_id": 144,
+      "label_text": "Search customers..."
+    }
+  },
+  {
+    "id": "1ffe22e0-12f9-401b-bfc0-e2df49f6051b",
+    "document": "Customer",
+    "metadata": {
+      "page_name": "bank_customer",
+      "get_by_text": "Customer",
+      "element_id": "1ffe22e0-12f9-401b-bfc0-e2df49f6051b",
+      "type": "ocr",
+      "label_text": "Customer",
+      "unique_name": "bank_customer_customer_label_customer_info",
+      "dom_matched": false,
+      "project_id": 144,
+      "ocr_type": "label",
+      "placeholder": "Customer",
+      "external": false,
+      "intent": "customer_info"
+    }
+  },
+  {
+    "id": "e19aa52a-12b0-4af6-8b3b-addeefc6fda8",
+    "document": "Account Type",
+    "metadata": {
+      "unique_name": "bank_customer_account_type_label_account_type_info",
+      "ocr_type": "label",
+      "page_name": "bank_customer",
+      "element_id": "e19aa52a-12b0-4af6-8b3b-addeefc6fda8",
+      "intent": "account_type_info",
+      "placeholder": "Account Type",
+      "get_by_text": "Account Type",
+      "external": false,
+      "project_id": 144,
+      "dom_matched": false,
+      "label_text": "Account Type",
       "type": "ocr"
     }
   },
   {
-    "id": "dd2f90c6-3485-4e40-8c6f-ecaf9f4f5952",
-    "document": "Bank CRM",
+    "id": "539f6f2a-46a9-4618-b8ed-dcf0489cff96",
+    "document": "Balance",
+    "metadata": {
+      "dom_matched": false,
+      "get_by_text": "Balance",
+      "element_id": "539f6f2a-46a9-4618-b8ed-dcf0489cff96",
+      "placeholder": "Balance",
+      "type": "ocr",
+      "page_name": "bank_customer",
+      "ocr_type": "label",
+      "project_id": 144,
+      "intent": "balance_info",
+      "label_text": "Balance",
+      "external": false,
+      "unique_name": "bank_customer_balance_label_balance_info"
+    }
+  },
+  {
+    "id": "217b8f40-6c47-40f9-9289-944aa8a1f138",
+    "document": "John Doe",
+    "metadata": {
+      "page_name": "bank_customer",
+      "external": false,
+      "dom_matched": false,
+      "label_text": "John Doe",
+      "unique_name": "bank_customer_john_doe_iconbutton_john_doe_action",
+      "ocr_type": "iconbutton",
+      "element_id": "217b8f40-6c47-40f9-9289-944aa8a1f138",
+      "get_by_text": "John Doe",
+      "placeholder": "John Doe",
+      "type": "ocr",
+      "project_id": 144,
+      "intent": "john_doe_action"
+    }
+  },
+  {
+    "id": "de15a435-9dc8-41d6-a815-78b769fa77d5",
+    "document": "Export",
+    "metadata": {
+      "get_by_text": "Export",
+      "project_id": 144,
+      "intent": "export_action",
+      "external": false,
+      "ocr_type": "button",
+      "unique_name": "bank_customer_export_button_export_action",
+      "placeholder": "Export",
+      "dom_matched": false,
+      "label_text": "Export",
+      "type": "ocr",
+      "element_id": "de15a435-9dc8-41d6-a815-78b769fa77d5",
+      "page_name": "bank_customer"
+    }
+  },
+  {
+    "id": "0cf4ab74-0ccd-4dea-b471-390965fbf2c8",
+    "document": "Create customer",
+    "metadata": {
+      "placeholder": "Create customer",
+      "label_text": "Create customer",
+      "type": "ocr",
+      "dom_matched": false,
+      "intent": "create_customer_action",
+      "unique_name": "bank_customer_create_customer_button_create_customer_action",
+      "element_id": "0cf4ab74-0ccd-4dea-b471-390965fbf2c8",
+      "external": false,
+      "get_by_text": "Create customer",
+      "project_id": 144,
+      "ocr_type": "button",
+      "page_name": "bank_customer"
+    }
+  },
+  {
+    "id": "fe6a19e5-28e0-4b9e-b76b-52ee7d020d10",
+    "document": "Filters",
     "metadata": {
       "external": false,
-      "label_text": "Bank CRM",
-      "placeholder": "Bank CRM",
-      "get_by_text": "Bank CRM",
-      "project_id": 337,
-      "intent": "bank_crm_info",
-      "dom_matched": false,
-      "element_id": "dd2f90c6-3485-4e40-8c6f-ecaf9f4f5952",
-      "unique_name": "bank_dashboard_bank_crm_label_bank_crm_info",
+      "element_id": "fe6a19e5-28e0-4b9e-b76b-52ee7d020d10",
+      "unique_name": "bank_customer_filters_button_filters_action",
+      "label_text": "Filters",
+      "placeholder": "Filters",
+      "page_name": "bank_customer",
       "type": "ocr",
-      "page_name": "bank_dashboard",
+      "project_id": 144,
+      "intent": "filters_action",
+      "ocr_type": "button",
+      "get_by_text": "Filters",
+      "dom_matched": false
+    }
+  },
+  {
+    "id": "6a38839e-0b2c-4166-8f77-21adbe959d4b",
+    "document": "Status",
+    "metadata": {
+      "label_text": "Status",
+      "ocr_type": "label",
+      "placeholder": "Status",
+      "unique_name": "bank_customer_status_label_status_info",
+      "type": "ocr",
+      "page_name": "bank_customer",
+      "dom_matched": false,
+      "intent": "status_info",
+      "project_id": 144,
+      "element_id": "6a38839e-0b2c-4166-8f77-21adbe959d4b",
+      "external": false,
+      "get_by_text": "Status"
+    }
+  },
+  {
+    "id": "ba3577fe-c0d5-4115-822c-47cf1b6ae789",
+    "document": "Join Date",
+    "metadata": {
+      "label_text": "Join Date",
+      "dom_matched": false,
+      "type": "ocr",
+      "external": false,
+      "placeholder": "Join Date",
+      "element_id": "ba3577fe-c0d5-4115-822c-47cf1b6ae789",
+      "get_by_text": "Join Date",
+      "project_id": 144,
+      "page_name": "bank_customer",
+      "unique_name": "bank_customer_join_date_label_join_date_info",
+      "intent": "join_date_info",
       "ocr_type": "label"
     }
   },
   {
-    "id": "961d49cd-923b-48ac-9d7d-196a84d19912",
-    "document": "Search customers, loans, transactions...",
+    "id": "ed271f9a-b6c4-40e6-b41f-df13f1545fdf",
+    "document": "Actions",
     "metadata": {
-      "placeholder": "Search customers, loans, transactions...",
-      "type": "ocr",
-      "label_text": "Search customers, loans, transactions...",
-      "unique_name": "bank_dashboard_search_customers_loans_transactions_textbox_search_customers_loans_transactions_field",
-      "element_id": "961d49cd-923b-48ac-9d7d-196a84d19912",
-      "get_by_text": "Search customers, loans, transactions...",
-      "ocr_type": "textbox",
-      "intent": "search_customers_loans_transactions_field",
-      "project_id": 337,
-      "page_name": "bank_dashboard",
-      "external": false,
-      "dom_matched": false
-    }
-  },
-  {
-    "id": "54fe1a5c-8a0d-40af-aeef-ff1a50bfae0c",
-    "document": "Dashboard",
-    "metadata": {
-      "project_id": 337,
-      "type": "ocr",
-      "external": false,
-      "intent": "dashboard_action",
-      "element_id": "54fe1a5c-8a0d-40af-aeef-ff1a50bfae0c",
-      "page_name": "bank_dashboard",
-      "label_text": "Dashboard",
-      "ocr_type": "link",
-      "dom_matched": false,
-      "placeholder": "Dashboard",
-      "unique_name": "bank_dashboard_dashboard_link_dashboard_action",
-      "get_by_text": "Dashboard"
-    }
-  },
-  {
-    "id": "91c25f29-6dc9-425f-af96-444549659b62",
-    "document": "Customers",
-    "metadata": {
-      "dom_matched": false,
-      "unique_name": "bank_dashboard_customers_link_customers_action",
-      "element_id": "91c25f29-6dc9-425f-af96-444549659b62",
-      "get_by_text": "Customers",
-      "type": "ocr",
-      "label_text": "Customers",
-      "placeholder": "Customers",
-      "ocr_type": "link",
-      "intent": "customers_action",
-      "page_name": "bank_dashboard",
-      "external": false,
-      "project_id": 337
-    }
-  },
-  {
-    "id": "8e0d24c0-0c90-4d5f-b264-662069ba808a",
-    "document": "Loans",
-    "metadata": {
-      "external": false,
-      "element_id": "8e0d24c0-0c90-4d5f-b264-662069ba808a",
-      "page_name": "bank_dashboard",
-      "intent": "loans_action",
-      "project_id": 337,
-      "type": "ocr",
-      "get_by_text": "Loans",
-      "unique_name": "bank_dashboard_loans_link_loans_action",
-      "ocr_type": "link",
-      "label_text": "Loans",
-      "placeholder": "Loans",
-      "dom_matched": false
-    }
-  },
-  {
-    "id": "041c2133-f77c-43db-8707-29cffd78faa3",
-    "document": "Transactions",
-    "metadata": {
-      "placeholder": "Transactions",
-      "page_name": "bank_dashboard",
-      "element_id": "041c2133-f77c-43db-8707-29cffd78faa3",
-      "ocr_type": "link",
-      "get_by_text": "Transactions",
-      "label_text": "Transactions",
-      "unique_name": "bank_dashboard_transactions_link_transactions_action",
+      "element_id": "ed271f9a-b6c4-40e6-b41f-df13f1545fdf",
+      "get_by_text": "Actions",
+      "ocr_type": "label",
       "type": "ocr",
       "dom_matched": false,
-      "project_id": 337,
-      "external": false,
-      "intent": "transactions_action"
-    }
-  },
-  {
-    "id": "13dc2119-9945-4602-b58d-1bc8d8c41de8",
-    "document": "Tasks",
-    "metadata": {
-      "intent": "tasks_action",
-      "project_id": 337,
-      "ocr_type": "link",
-      "placeholder": "Tasks",
-      "dom_matched": false,
-      "external": false,
-      "unique_name": "bank_dashboard_tasks_link_tasks_action",
-      "label_text": "Tasks",
-      "type": "ocr",
-      "element_id": "13dc2119-9945-4602-b58d-1bc8d8c41de8",
-      "get_by_text": "Tasks",
-      "page_name": "bank_dashboard"
-    }
-  },
-  {
-    "id": "8957615e-1799-4c00-9053-36d2350864a0",
-    "document": "Reports",
-    "metadata": {
-      "page_name": "bank_dashboard",
-      "project_id": 337,
-      "element_id": "8957615e-1799-4c00-9053-36d2350864a0",
-      "label_text": "Reports",
-      "intent": "reports_action",
-      "type": "ocr",
-      "get_by_text": "Reports",
-      "dom_matched": false,
-      "ocr_type": "link",
-      "unique_name": "bank_dashboard_reports_link_reports_action",
-      "placeholder": "Reports",
+      "label_text": "Actions",
+      "page_name": "bank_customer",
+      "placeholder": "Actions",
+      "project_id": 144,
+      "intent": "actions_info",
+      "unique_name": "bank_customer_actions_label_actions_info",
       "external": false
     }
   },
   {
-    "id": "ed80183b-fac2-4e8c-974a-897143a10003",
+    "id": "6b31e5f5-b2ce-45b8-8601-851128272590",
+    "document": "Edit with Lovable",
+    "metadata": {
+      "project_id": 144,
+      "ocr_type": "button",
+      "unique_name": "bank_customer_edit_with_lovable_button_edit_with_lovable_action",
+      "external": false,
+      "dom_matched": false,
+      "get_by_text": "Edit with Lovable",
+      "element_id": "6b31e5f5-b2ce-45b8-8601-851128272590",
+      "placeholder": "Edit with Lovable",
+      "intent": "edit_with_lovable_action",
+      "type": "ocr",
+      "page_name": "bank_customer",
+      "label_text": "Edit with Lovable"
+    }
+  },
+  {
+    "id": "4b1c79b1-195f-4f5c-a0fb-aa47326184b5",
+    "document": "Search customers, loans, transactions...",
+    "metadata": {
+      "project_id": 144,
+      "page_name": "bank_dashboard",
+      "intent": "search_customers_loans_transactions_field",
+      "unique_name": "bank_dashboard_search_customers_loans_transactions_textbox_search_customers_loans_transactions_field",
+      "dom_matched": false,
+      "element_id": "4b1c79b1-195f-4f5c-a0fb-aa47326184b5",
+      "ocr_type": "textbox",
+      "type": "ocr",
+      "placeholder": "Search customers, loans, transactions...",
+      "external": false,
+      "label_text": "Search customers, loans, transactions...",
+      "get_by_text": "Search customers, loans, transactions..."
+    }
+  },
+  {
+    "id": "78f91c1c-aefd-4cc4-b303-907d530f76bd",
+    "document": "Dashboard",
+    "metadata": {
+      "placeholder": "Dashboard",
+      "project_id": 144,
+      "dom_matched": false,
+      "type": "ocr",
+      "ocr_type": "link",
+      "page_name": "bank_dashboard",
+      "label_text": "Dashboard",
+      "element_id": "78f91c1c-aefd-4cc4-b303-907d530f76bd",
+      "unique_name": "bank_dashboard_dashboard_link_dashboard_action",
+      "get_by_text": "Dashboard",
+      "external": false,
+      "intent": "dashboard_action"
+    }
+  },
+  {
+    "id": "537617d8-4b38-4c84-95e9-583e7fd987f0",
+    "document": "Customers",
+    "metadata": {
+      "external": false,
+      "get_by_text": "Customers",
+      "dom_matched": false,
+      "unique_name": "bank_dashboard_customers_link_customers_action",
+      "placeholder": "Customers",
+      "intent": "customers_action",
+      "page_name": "bank_dashboard",
+      "project_id": 144,
+      "type": "ocr",
+      "label_text": "Customers",
+      "ocr_type": "link",
+      "element_id": "537617d8-4b38-4c84-95e9-583e7fd987f0"
+    }
+  },
+  {
+    "id": "90e6cfdd-c54e-4fc7-aa5b-7a269b5e99e5",
+    "document": "Loans",
+    "metadata": {
+      "placeholder": "Loans",
+      "page_name": "bank_dashboard",
+      "intent": "loans_action",
+      "external": false,
+      "element_id": "90e6cfdd-c54e-4fc7-aa5b-7a269b5e99e5",
+      "label_text": "Loans",
+      "dom_matched": false,
+      "project_id": 144,
+      "get_by_text": "Loans",
+      "type": "ocr",
+      "ocr_type": "link",
+      "unique_name": "bank_dashboard_loans_link_loans_action"
+    }
+  },
+  {
+    "id": "6fe05c4d-e30d-48db-a988-2cd3ee547dfa",
+    "document": "Transactions",
+    "metadata": {
+      "unique_name": "bank_dashboard_transactions_link_transactions_action",
+      "get_by_text": "Transactions",
+      "placeholder": "Transactions",
+      "external": false,
+      "label_text": "Transactions",
+      "ocr_type": "link",
+      "element_id": "6fe05c4d-e30d-48db-a988-2cd3ee547dfa",
+      "project_id": 144,
+      "intent": "transactions_action",
+      "dom_matched": false,
+      "page_name": "bank_dashboard",
+      "type": "ocr"
+    }
+  },
+  {
+    "id": "58b258ff-b546-429f-9937-64b4799e344f",
+    "document": "Tasks",
+    "metadata": {
+      "page_name": "bank_dashboard",
+      "external": false,
+      "element_id": "58b258ff-b546-429f-9937-64b4799e344f",
+      "placeholder": "Tasks",
+      "intent": "tasks_action",
+      "ocr_type": "link",
+      "label_text": "Tasks",
+      "project_id": 144,
+      "get_by_text": "Tasks",
+      "type": "ocr",
+      "unique_name": "bank_dashboard_tasks_link_tasks_action",
+      "dom_matched": false
+    }
+  },
+  {
+    "id": "4dabf810-2cee-4dcb-82c5-c1e5a6cd8293",
+    "document": "Reports",
+    "metadata": {
+      "placeholder": "Reports",
+      "unique_name": "bank_dashboard_reports_link_reports_action",
+      "dom_matched": false,
+      "external": false,
+      "label_text": "Reports",
+      "project_id": 144,
+      "element_id": "4dabf810-2cee-4dcb-82c5-c1e5a6cd8293",
+      "intent": "reports_action",
+      "type": "ocr",
+      "get_by_text": "Reports",
+      "page_name": "bank_dashboard",
+      "ocr_type": "link"
+    }
+  },
+  {
+    "id": "09b04168-9236-44cc-9a75-f365ec258ee6",
     "document": "Analytics",
     "metadata": {
-      "unique_name": "bank_dashboard_analytics_link_analytics_action",
-      "intent": "analytics_action",
-      "placeholder": "Analytics",
-      "element_id": "ed80183b-fac2-4e8c-974a-897143a10003",
-      "type": "ocr",
-      "get_by_text": "Analytics",
-      "ocr_type": "link",
-      "external": false,
-      "page_name": "bank_dashboard",
-      "dom_matched": false,
       "label_text": "Analytics",
-      "project_id": 337
-    }
-  },
-  {
-    "id": "5b38e8a6-c4c3-44ce-93b4-7ce01b023c3a",
-    "document": "Settings",
-    "metadata": {
-      "get_by_text": "Settings",
-      "unique_name": "bank_dashboard_settings_link_settings_action",
-      "type": "ocr",
+      "unique_name": "bank_dashboard_analytics_link_analytics_action",
+      "get_by_text": "Analytics",
+      "placeholder": "Analytics",
+      "dom_matched": false,
+      "element_id": "09b04168-9236-44cc-9a75-f365ec258ee6",
+      "intent": "analytics_action",
+      "project_id": 144,
       "ocr_type": "link",
-      "dom_matched": false,
-      "page_name": "bank_dashboard",
-      "element_id": "5b38e8a6-c4c3-44ce-93b4-7ce01b023c3a",
-      "project_id": 337,
-      "label_text": "Settings",
       "external": false,
-      "intent": "settings_action",
-      "placeholder": "Settings"
-    }
-  },
-  {
-    "id": "d87762ec-7fef-482b-9861-6f0b2d8d4ec7",
-    "document": "Export Report",
-    "metadata": {
-      "get_by_text": "Export Report",
-      "external": false,
-      "element_id": "d87762ec-7fef-482b-9861-6f0b2d8d4ec7",
-      "unique_name": "bank_dashboard_export_report_button_export_report_action",
-      "intent": "export_report_action",
-      "project_id": 337,
-      "placeholder": "Export Report",
-      "dom_matched": false,
-      "label_text": "Export Report",
       "type": "ocr",
-      "ocr_type": "button",
       "page_name": "bank_dashboard"
     }
   },
   {
-    "id": "736838f6-f1f2-43df-b351-dc36afb341de",
+    "id": "4c7fe6ec-7123-4a44-be80-6ffce086edc9",
+    "document": "Settings",
+    "metadata": {
+      "page_name": "bank_dashboard",
+      "intent": "settings_action",
+      "unique_name": "bank_dashboard_settings_link_settings_action",
+      "project_id": 144,
+      "element_id": "4c7fe6ec-7123-4a44-be80-6ffce086edc9",
+      "label_text": "Settings",
+      "get_by_text": "Settings",
+      "external": false,
+      "type": "ocr",
+      "ocr_type": "link",
+      "placeholder": "Settings",
+      "dom_matched": false
+    }
+  },
+  {
+    "id": "48e6455c-0af5-4713-99e2-d6c88f9708bb",
+    "document": "Dashboard",
+    "metadata": {
+      "label_text": "Dashboard",
+      "placeholder": "Dashboard",
+      "get_by_text": "Dashboard",
+      "dom_matched": false,
+      "project_id": 144,
+      "external": false,
+      "page_name": "bank_dashboard",
+      "ocr_type": "label",
+      "intent": "dashboard_info",
+      "unique_name": "bank_dashboard_dashboard_label_dashboard_info",
+      "type": "ocr",
+      "element_id": "48e6455c-0af5-4713-99e2-d6c88f9708bb"
+    }
+  },
+  {
+    "id": "440ca926-2d2f-4cce-823b-99cecb2b36e6",
+    "document": "Total Customers",
+    "metadata": {
+      "ocr_type": "label",
+      "get_by_text": "Total Customers",
+      "element_id": "440ca926-2d2f-4cce-823b-99cecb2b36e6",
+      "project_id": 144,
+      "unique_name": "bank_dashboard_total_customers_label_total_customers_info",
+      "dom_matched": false,
+      "type": "ocr",
+      "page_name": "bank_dashboard",
+      "external": false,
+      "placeholder": "Total Customers",
+      "label_text": "Total Customers",
+      "intent": "total_customers_info"
+    }
+  },
+  {
+    "id": "4e83d121-dc6c-4071-b5b1-539076eb00b8",
+    "document": "Active Loans",
+    "metadata": {
+      "project_id": 144,
+      "ocr_type": "label",
+      "element_id": "4e83d121-dc6c-4071-b5b1-539076eb00b8",
+      "label_text": "Active Loans",
+      "unique_name": "bank_dashboard_active_loans_label_active_loans_info",
+      "type": "ocr",
+      "intent": "active_loans_info",
+      "dom_matched": false,
+      "placeholder": "Active Loans",
+      "external": false,
+      "get_by_text": "Active Loans",
+      "page_name": "bank_dashboard"
+    }
+  },
+  {
+    "id": "997ee776-fe49-4e9c-a2be-ce2aac48c736",
+    "document": "Loan Portfolio Trend",
+    "metadata": {
+      "ocr_type": "label",
+      "type": "ocr",
+      "page_name": "bank_dashboard",
+      "intent": "loan_portfolio_trend_info",
+      "dom_matched": false,
+      "external": false,
+      "unique_name": "bank_dashboard_loan_portfolio_trend_label_loan_portfolio_trend_info",
+      "placeholder": "Loan Portfolio Trend",
+      "project_id": 144,
+      "element_id": "997ee776-fe49-4e9c-a2be-ce2aac48c736",
+      "get_by_text": "Loan Portfolio Trend",
+      "label_text": "Loan Portfolio Trend"
+    }
+  },
+  {
+    "id": "b9f6e723-92b2-4ee3-9391-dcf9b045f87c",
     "document": "John Doe",
     "metadata": {
-      "project_id": 337,
-      "page_name": "bank_dashboard",
-      "get_by_text": "John Doe",
-      "element_id": "736838f6-f1f2-43df-b351-dc36afb341de",
-      "intent": "john_doe_action",
       "type": "ocr",
-      "label_text": "John Doe",
-      "unique_name": "bank_dashboard_john_doe_link_john_doe_action",
+      "project_id": 144,
       "external": false,
-      "placeholder": "John Doe",
+      "intent": "john_doe_action",
+      "page_name": "bank_dashboard",
+      "label_text": "John Doe",
+      "get_by_text": "John Doe",
+      "element_id": "b9f6e723-92b2-4ee3-9391-dcf9b045f87c",
+      "ocr_type": "iconbutton",
+      "unique_name": "bank_dashboard_john_doe_iconbutton_john_doe_action",
       "dom_matched": false,
-      "ocr_type": "link"
+      "placeholder": "John Doe"
+    }
+  },
+  {
+    "id": "605e52f4-dc6a-4a9a-b89c-ec75c0e65a86",
+    "document": "Export Report",
+    "metadata": {
+      "ocr_type": "button",
+      "placeholder": "Export Report",
+      "element_id": "605e52f4-dc6a-4a9a-b89c-ec75c0e65a86",
+      "project_id": 144,
+      "unique_name": "bank_dashboard_export_report_button_export_report_action",
+      "type": "ocr",
+      "external": false,
+      "get_by_text": "Export Report",
+      "dom_matched": false,
+      "label_text": "Export Report",
+      "intent": "export_report_action",
+      "page_name": "bank_dashboard"
+    }
+  },
+  {
+    "id": "8358ea83-bcfb-4ed0-993d-473fab66dc5b",
+    "document": "Monthly Transactions",
+    "metadata": {
+      "page_name": "bank_dashboard",
+      "project_id": 144,
+      "unique_name": "bank_dashboard_monthly_transactions_label_monthly_transactions_info",
+      "dom_matched": false,
+      "element_id": "8358ea83-bcfb-4ed0-993d-473fab66dc5b",
+      "external": false,
+      "ocr_type": "label",
+      "label_text": "Monthly Transactions",
+      "placeholder": "Monthly Transactions",
+      "type": "ocr",
+      "get_by_text": "Monthly Transactions",
+      "intent": "monthly_transactions_info"
+    }
+  },
+  {
+    "id": "70981635-1ae4-4ace-bf5a-966765d04d32",
+    "document": "Revenue Growth",
+    "metadata": {
+      "placeholder": "Revenue Growth",
+      "get_by_text": "Revenue Growth",
+      "type": "ocr",
+      "unique_name": "bank_dashboard_revenue_growth_label_revenue_growth_info",
+      "element_id": "70981635-1ae4-4ace-bf5a-966765d04d32",
+      "project_id": 144,
+      "page_name": "bank_dashboard",
+      "label_text": "Revenue Growth",
+      "external": false,
+      "intent": "revenue_growth_info",
+      "dom_matched": false,
+      "ocr_type": "label"
+    }
+  },
+  {
+    "id": "2d0e9fc9-66c6-4eb8-babb-bcb970a07a63",
+    "document": "Customer Distribution",
+    "metadata": {
+      "element_id": "2d0e9fc9-66c6-4eb8-babb-bcb970a07a63",
+      "intent": "customer_distribution_info",
+      "get_by_text": "Customer Distribution",
+      "placeholder": "Customer Distribution",
+      "dom_matched": false,
+      "page_name": "bank_dashboard",
+      "external": false,
+      "project_id": 144,
+      "label_text": "Customer Distribution",
+      "type": "ocr",
+      "ocr_type": "label",
+      "unique_name": "bank_dashboard_customer_distribution_label_customer_distribution_info"
+    }
+  },
+  {
+    "id": "382c5ba2-b61e-48eb-a927-75fabb8c0aec",
+    "document": "Edit with Lovable",
+    "metadata": {
+      "unique_name": "bank_dashboard_edit_with_lovable_button_edit_with_lovable_action",
+      "dom_matched": false,
+      "external": false,
+      "label_text": "Edit with Lovable",
+      "ocr_type": "button",
+      "page_name": "bank_dashboard",
+      "placeholder": "Edit with Lovable",
+      "project_id": 144,
+      "get_by_text": "Edit with Lovable",
+      "type": "ocr",
+      "element_id": "382c5ba2-b61e-48eb-a927-75fabb8c0aec",
+      "intent": "edit_with_lovable_action"
     }
   }
 ]

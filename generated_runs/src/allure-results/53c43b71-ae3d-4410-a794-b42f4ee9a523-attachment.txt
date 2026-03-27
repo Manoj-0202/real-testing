@@ -1,0 +1,12 @@
+Given I am on the CRM dashboard on https://bank-buddy-crm-react.lovable.app/
+When I click the "Customers" button,
+And I click the "Create Customer" button,
+And I enter "John Doe" in the Full Name field,
+And I enter "john.doe@example.com" in the Email field,
+And I enter "1234567890" in the Phone Number field,
+And I select "Standard" for Account Type,
+And I enter "123 Main St, Anytown, USA" in the Address field,
+And I enter "Software Engineer" in the Occupation field,
+And I enter "75000" in the Annual Income field,
+And I enter "1000" in the Initial Deposit field,
+And I click the "Add Customer" button,
