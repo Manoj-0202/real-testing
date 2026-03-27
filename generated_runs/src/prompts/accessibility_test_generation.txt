@@ -18,11 +18,13 @@ GLOBAL STRICT RULES (NO EXCEPTIONS)
     - Hard-code page names
     - Call any accessibility scan helpers
 5. Use ONLY:
-   - page
-   - expect
-   - page.locator(...)
-   - page.keyboard
-   - page.evaluate(...)
+   - `page`
+   - `expect`
+   - `page.locator(...)`
+   - `page.keyboard` helpers (`type`, `press`, `down`, `up`)
+   - `page.mouse` helpers (`click`, `move`, `down`, `up`, `wheel`)
+   - `page.check(...)` / `page.uncheck(...)`
+   - `page.evaluate(...)`
 6. Every accessibility rule MUST have at least ONE explicit assertion.
 7. Use ONLY **valid Playwright assertion patterns** for Playwright objects.
 8. For primitive Python types (strings, integers, booleans) or non-Playwright objects, you MUST use standard Python `assert` statements.
@@ -48,6 +50,7 @@ Generate **SEPARATE test functions**, exactly ONE per WCAG rule.
 
 Each test function MUST:
 - Start with prefix: test_a11y_
+- Use signature: def test_a11y_<rule>(page):
 - Cover ONLY ONE WCAG success criterion
 - Be independently executable
 - Use only POM methods for navigation
